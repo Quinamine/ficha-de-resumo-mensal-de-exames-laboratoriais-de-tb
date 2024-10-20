@@ -1,0 +1,569 @@
+[1mdiff --git a/anatomia/layout.css b/anatomia/layout.css[m
+[1mindex e8c1a37..374edd1 100644[m
+[1m--- a/anatomia/layout.css[m
+[1m+++ b/anatomia/layout.css[m
+[36m@@ -193,15 +193,17 @@[m
+ @media print {[m
+     .layout-row--obs{[m
+         border: none;[m
+[31m-        padding-left: 0;[m
+[32m+[m[32m        padding: 0;[m
+     }[m
+ }[m
+[31m-.layout-row--obs.--focus {[m
+[31m-    border: 2px solid var(--blue);[m
+[31m-    background-color: var(--greenyellow);[m
+[32m+[m[32m@media screen {[m
+[32m+[m[32m    .layout-row--obs.--focus {[m
+[32m+[m[32m        border: 2px solid var(--blue);[m
+[32m+[m[32m        background-color: var(--greenyellow);[m
+[32m+[m[32m    }[m
+ }[m
+ .obs__label {[m
+[31m-    padding: 5px;[m
+[32m+[m[32m    padding: 5px 10px;[m
+     border-radius: 15px;[m
+     background-color: var(--blue--cobalt);[m
+     color: var(--yt);[m
+[36m@@ -209,6 +211,7 @@[m
+ @media print {[m
+     .obs__label {[m
+         padding-left: 0;[m
+[32m+[m[32m        padding-right: 5px;[m
+         background-color: var(--yt);[m
+         color: var(--fullblack);[m
+     }[m
+[36m@@ -219,6 +222,7 @@[m
+     padding: 5px 0px;[m
+     margin-left: 2px;[m
+     cursor: text;[m
+[32m+[m[32m    text-align: justify;[m
+ }[m
+ .obs__input:focus {[m
+     outline: 0;[m
+[36m@@ -304,7 +308,7 @@[m
+ }[m
+ .layout-row--of-reference {[m
+     display: grid;[m
+[31m-    grid-template-columns: 53px 500px 68px 60px;[m
+[32m+[m[32m    grid-template-columns: 33px 500px 45px 135px;[m
+     align-items: center;[m
+     min-height: 28px;[m
+     font-size: 12px;[m
+[36m@@ -325,7 +329,7 @@[m
+ }[m
+ @media screen and (max-width: 810px) {[m
+     .layout-row--of-reference {[m
+[31m-        grid-template-columns: 1fr 60px;[m
+[32m+[m[32m        grid-template-columns: 1fr 135px;[m
+         grid-column-gap: 3px;[m
+         padding-left: 0;[m
+         padding-right: 0;[m
+[1mdiff --git a/fisiologia/menu.js b/fisiologia/menu.js[m
+[1mindex 936170c..2850b38 100644[m
+[1m--- a/fisiologia/menu.js[m
+[1m+++ b/fisiologia/menu.js[m
+[36m@@ -143,14 +143,14 @@[m [mfunction eventos() {[m
+     // PARTILHAR [m
+     const data = {[m
+         title: "Ficha de Resumo Mensal de Exames Laboratoriais de TB",[m
+[31m-        text: "As células da ficha são interativas, pode inserir valores nelas.",[m
+[32m+[m[32m        text: "As células da ficha são interativas, isto é, pode inserir valores nelas.",[m
+         url: "https://quinamine.github.io/ficha-de-resumo-mensal-de-exames-laboratoriais-de-tb/index.html"[m
+     }[m
+     const btnPartilhar = document.querySelector(".header__menu__btn--partilhar");[m
+     btnPartilhar.addEventListener("click", () => {[m
+         try {[m
+[31m-            navigator.share(data).then(()=>console.log("Totalizador partilhado com sucesso."))[m
+[31m-            .catch(e=> console.log(`Não foi possivel partilhar o totalizador devido ao erro: ${e}.`))[m
+[32m+[m[32m            navigator.share(data).then(()=>console.log("Serviço partilhado com sucesso."))[m
+[32m+[m[32m            .catch(e=> console.log(`Não foi possivel partilhar o serviço devido ao erro: ${e}.`))[m
+         } catch (e) {[m
+             console.log("O seu navegador não tem suporte ao método 'navigator.share()'.")[m
+         }[m
+[1mdiff --git a/fisiologia/multifuncoes.js b/fisiologia/multifuncoes.js[m
+[1mindex 1ad5279..fca62a0 100644[m
+[1m--- a/fisiologia/multifuncoes.js[m
+[1m+++ b/fisiologia/multifuncoes.js[m
+[36m@@ -1,5 +1,5 @@[m
+ ﻿"use strict"[m
+[31m-var keyPrefix = "trmtb";[m
+[32m+[m[32mvar keyPrefix = "frml";[m
+ function desfoqueDoFundo(accao) {[m
+     const desfoque = document.querySelector(".desfoque");[m
+     accao === "desfocar" ? [m
+[36m@@ -30,15 +30,15 @@[m [mfunction destacarCelulasComConteudoOmisso() {[m
+         c.classList.remove("input--font-small");[m
+         c.classList.remove("input--bg-color-danger");[m
+         if(c.clientWidth > 100) {[m
+[31m-            if(c.value.length > 27) {[m
+[32m+[m[32m            if(c.value.length > 13) {[m
+                 c.classList.add("input--bg-color-danger");[m
+                 celulasSaturadas++;[m
+             }[m
+             [m
+         } else {[m
+[31m-            if(c.value.length === 8) {[m
+[32m+[m[32m            if(c.value.length === 9) {[m
+                 c.classList.add("input--font-small");[m
+[31m-            } else if(c.value.length > 8) {[m
+[32m+[m[32m            } else if(c.value.length > 9) {[m
+                 c.classList.add("input--bg-color-danger");[m
+                 celulasSaturadas++;[m
+             }[m
+[36m@@ -106,6 +106,9 @@[m [mwindow.addEventListener("load", () => {[m
+     destacarCelulasComConteudoOmisso();[m
+     actualizarAnoDeCopyright()[m
+     formatarNumeros();[m
+[32m+[m[32m    aqd.mostrarAviso();[m
+[32m+[m[32m    const dialogBoxAQD__btn = document.querySelector(".dialog-box-default__btn--aqd");[m
+[32m+[m[32m    dialogBoxAQD__btn.addEventListener("click", aqd.salvarCiencia);[m
+     // Animar Caixa de diálogo "Esvaziar ficha"[m
+     const desfoque = document.querySelector(".desfoque");[m
+     desfoque.addEventListener("mousedown", event => animarCaixaDeDialogo(event.type));[m
+[1mdiff --git a/fisiologia/referencia.js b/fisiologia/referencia.js[m
+[1mindex 4a5bb7e..cfad8d1 100644[m
+[1m--- a/fisiologia/referencia.js[m
+[1m+++ b/fisiologia/referencia.js[m
+[36m@@ -1,69 +1,35 @@[m
+ "use strict"[m
+ const referencia = {[m
+[31m-    retornarIndicadorEfaixaEtaria(inputTarget) {[m
+[31m-        const indicadorOutput = document.querySelector(".reference__output--indicador");[m
+[31m-        const faixaEtariaOutput = document.querySelector(".reference__output--idade");[m
+[32m+[m[32m    retornarLinhaEcoluna(inputTarget) {[m
+[32m+[m[32m        const linhaOutput = document.querySelector(".reference__output--indicador");[m
+[32m+[m[32m        const colunaOutput = document.querySelector(".reference__output--idade");[m
+         const celulaComFocoEirmas = inputTarget.parentElement.children;[m
+         // Seccoes[m
+[31m-        let isSection1 = inputTarget.parentElement.parentElement.matches(".ficha__seccao__body--1");[m
+[31m-        let isSection2 = inputTarget.parentElement.parentElement.matches(".ficha__seccao__body--2");[m
+[31m-        let isSection3 = inputTarget.parentElement.matches(".ficha__seccao__body--3");[m
+[31m-        let isSection4 = inputTarget.parentElement.parentElement.matches(".ficha__seccao__body--4");[m
+[31m-        let isSubSection4 = inputTarget.parentElement.matches(".ficha__seccao-4__pseudo-body")[m
+[31m-        if(isSection1) {[m
+[31m-            const indicadores = document.querySelectorAll(".ficha__seccao-1__subcol-de-indicadores--1 span");[m
+[31m-            const subindicadores = document.querySelectorAll(".ficha__seccao-1__subcol-de-indicadores--2 span");[m
+[31m-            let celulaFocadaIndex;[m
+[31m-            let indicadorIndex, subindicadorIndex;           [m
+[31m-            for(let i = 0; i < celulaComFocoEirmas.length; i++) {[m
+[31m-                if(inputTarget === celulaComFocoEirmas[i]) {[m
+[31m-                    celulaFocadaIndex = i;[m
+[31m-                    indicadorIndex = i < 4 ? 0[m
+[31m-                    : i < 8 ? 1[m
+[31m-                    : 2;[m
+[31m-                    subindicadorIndex = i;[m
+[31m-                }[m
+[31m-            }[m
+[31m-            indicadorOutput.textContent = `${indicadores[indicadorIndex].textContent}: ${subindicadores[subindicadorIndex].textContent}`;[m
+[31m-            faixaEtariaOutput.textContent = inputTarget.parentElement.dataset.faixaetaria;[m
+[31m-        } else if(isSubSection4) {[m
+[31m-            let tituloDaSeccao = document.querySelector(".ficha__seccao-4__subtitulo--2");[m
+[31m-            let indicadores = document.querySelectorAll(".indicadores-da-subseccao-4 span");[m
+[31m-            let celulaFocadaIndex;           [m
+[31m-            for(let i = 0; i < celulaComFocoEirmas.length; i++) {[m
+[31m-                if(inputTarget === celulaComFocoEirmas[i]) {[m
+[31m-                    celulaFocadaIndex = i;[m
+[31m-                }[m
+[31m-            }[m
+[31m-            indicadorOutput.textContent = `${tituloDaSeccao.textContent}: ${indicadores[celulaFocadaIndex].textContent}`;[m
+[31m-            faixaEtariaOutput.textContent = "-";[m
+[32m+[m[32m        let isSection2 = inputTarget.parentElement.parentElement.matches(".ficha__seccao--2");[m
+[32m+[m[32m        let isSection3 = inputTarget.parentElement.parentElement.matches(".ficha__seccao--3");[m
+[32m+[m[32m        let isSection4 = inputTarget.parentElement.parentElement.matches(".ficha__seccao--4");[m
+[32m+[m[32m        let isSection5 = inputTarget.parentElement.parentElement.matches(".ficha__seccao--5");[m
+[32m+[m[32m        let tituloDaSeccao = inputTarget.parentElement.parentElement.children[0].textContent;[m
+[32m+[m[32m        if(isSection3) {[m
+[32m+[m[32m            let subtituloDaSeccao = inputTarget.parentElement.dataset.subtitulo;[m
+[32m+[m[32m            tituloDaSeccao = `${tituloDaSeccao}: ${subtituloDaSeccao}`[m
+[32m+[m[32m        }[m
+[32m+[m[32m        let linha = inputTarget.parentElement.children[0].textContent;[m
+[32m+[m[32m        let colVariables, inputTargetIndex;[m
+[32m+[m[32m        for(let i = 0; i < celulaComFocoEirmas.length; i++) {[m
+[32m+[m[32m            if(celulaComFocoEirmas[i] === inputTarget) inputTargetIndex = i - 1;[m
+[32m+[m[32m        }[m
+[32m+[m[32m        if(isSection2) {[m
+[32m+[m[32m            colVariables = document.querySelectorAll(".seccao-2__header__exames span");[m
+[32m+[m[32m        } else if(isSection4) {[m
+[32m+[m[32m            colVariables = document.querySelectorAll(".ficha__seccao__header--seccao-4 span");[m
+[32m+[m[32m        } else if(isSection5) {[m
+[32m+[m[32m            colVariables = document.querySelectorAll(".ficha__seccao__header--seccao-5 span");[m
+         } else {[m
+[31m-            let tituloDaSeccao;[m
+[31m-            if(isSection2) {[m
+[31m-                tituloDaSeccao = document.querySelector("#titulo-da-seccao-2");[m
+[31m-            }[m
+[31m-            else if(isSection3) {[m
+[31m-                tituloDaSeccao = document.querySelector("#titulo-da-seccao-3");[m
+[31m-                let indicador = `${tituloDaSeccao.textContent}: ${celulaComFocoEirmas[0].textContent}`;[m
+[31m-                indicadorOutput.textContent = indicador;[m
+[31m-                faixaEtariaOutput.textContent = "-";[m
+[31m-                return !1;[m
+[31m-            } else if(isSection4) {[m
+[31m-                tituloDaSeccao = document.querySelector("#titulo-da-seccao-4")[m
+[31m-            } else {[m
+[31m-                tituloDaSeccao = document.querySelector("#titulo-da-seccao-5");[m
+[31m-            }[m
+[31m-            let indicador = `${tituloDaSeccao.textContent}: ${celulaComFocoEirmas[0].textContent}`;[m
+[31m-            indicadorOutput.textContent = indicador;[m
+[31m-            let faixasEtarias = ["0 - 4","5 - 9","10 - 14","15 - 19","20 - 24","25 - 34","35 - 44","45 - 54","55 - 64","≥ 65"];[m
+[31m-            let celulaFocadaIndex;           [m
+[31m-            for(let i = 0; i < celulaComFocoEirmas.length; i++) {[m
+[31m-                if(inputTarget === celulaComFocoEirmas[i]) {[m
+[31m-                    celulaFocadaIndex = i - 1;[m
+[31m-                }[m
+[31m-            }[m
+[31m-            faixaEtariaOutput.textContent = faixasEtarias[celulaFocadaIndex];[m
+[32m+[m[32m            colVariables = document.querySelectorAll(".linha-de-faixas-etarias--seccao-1 span");[m
+         }[m
+[32m+[m[32m        linhaOutput.innerHTML = `${tituloDaSeccao}: ${linha}`;[m
+[32m+[m[32m        colunaOutput.innerHTML = colVariables[inputTargetIndex].textContent;[m
+     },[m
+     retornarVazio() {[m
+         const outputs = document.querySelectorAll(".reference__output");[m
+[36m@@ -75,7 +41,7 @@[m [mfunction events() {[m
+     inputsCelulares.forEach( inputCelular => {[m
+         inputCelular.addEventListener("focus", () => {[m
+             if(!inputCelular.matches("[readonly]")) {[m
+[31m-                referencia.retornarIndicadorEfaixaEtaria(inputCelular);[m
+[32m+[m[32m                referencia.retornarLinhaEcoluna(inputCelular);[m
+             }[m
+         });[m
+     });[m
+[1mdiff --git a/index.html b/index.html[m
+[1mindex 70a1084..a8d6149 100644[m
+[1m--- a/index.html[m
+[1m+++ b/index.html[m
+[36m@@ -6,7 +6,7 @@[m
+         <meta content="width=device-width,initial-scale=1" name=viewport>[m
+         <title>Ficha de Resumo Mensal de Exames Laboratoriais de TB</title>[m
+         <meta content="index, follow" name=robots>[m
+[31m-        <meta content="As células da ficha são interativas, pode inserir valores nelas." name=description>[m
+[32m+[m[32m        <meta content="As células da ficha são interativas, isto é, pode inserir valores nelas." name=description>[m
+         <meta content="Ficha de Resumo Mensal de Exames Laboratoriais de TB, Rastreio de Tuberculose, Exame bacteriológico, Microscopia, GeneXpert MTB/RIF,Truenat, LAM." name=keywords>[m
+         <meta content="Adérito Félix Quinamine" name=author>[m
+         <meta content=https://quinamine.github.io/ficha-de-resumo-mensal-de-exames-laboratoriais-de-tb/index.html property=og:url>[m
+[36m@@ -57,7 +57,7 @@[m
+                         <li class="header__menu__li">[m
+                             <button class="header__menu__btn header__menu__btn--ajuda">Ajuda</button>[m
+                         </li>[m
+[31m-                        <li class="header__menu__li header__menu__item--hide-on-desktop --display-none">[m
+[32m+[m[32m                        <li class="header__menu__li header__menu__item--hide-on-desktop">[m
+                             <button class="header__menu__btn header__menu__btn--partilhar">Partilhar...</button>[m
+                         </li>[m
+                     </ul>[m
+[36m@@ -112,7 +112,7 @@[m
+ 					</div>[m
+ 				</header>[m
+                 <section class="ficha__seccao ficha__seccao--1 ficha__seccao--margin-t --border-b-thick">[m
+[31m-                    <h2 class="ficha__seccao__titulo --fw-700">Secção 1: Rastreio de TB por faixa etária</h2>[m
+[32m+[m[32m                    <h2 class="ficha__seccao__titulo --fw-700">SECÇÃO 1: RASTREIO DE TB POR FAIXA ETÁRIA</h2>[m
+                     <header class="ficha__seccao__header --cor-de-fundo-padrao --border-t --border-b-thick">[m
+                         <div class="ficha__header__col-variaveis --display-flex-xy-center --fw-700"></div>[m
+                         <div class="seccao__header__col-faixas-etarias seccao__header__col-faixas-etarias--grid-template-rows-3">[m
+[36m@@ -129,7 +129,7 @@[m
+                                 <div class="--display-flex-xy-center --border-l"><span>9</span></div>[m
+                                 <div class="--display-flex-xy-center --border-l"><span>10</span></div>[m
+                             </div>[m
+[31m-                            <div class="seccao__header__linha-de-faixas-etarias grid-template-cols-10 --cor-de-fundo-padrao-discreta ">[m
+[32m+[m[32m                            <div class="seccao__header__linha-de-faixas-etarias linha-de-faixas-etarias--seccao-1 grid-template-cols-10 --cor-de-fundo-padrao-discreta ">[m
+                                 <div class="--display-flex-xy-center --border-l"><span>0 - 4</span></div>[m
+                                 <div class="--display-flex-xy-center --border-l"><span>5 - 9</span></div>[m
+                                 <div class="--display-flex-xy-center --border-l"><span>10 - 14</span></div>[m
+[36m@@ -171,7 +171,7 @@[m
+                     </div>[m
+                 </section>[m
+                 <section class="ficha__seccao ficha__seccao--2 ficha__seccao--margin-t">[m
+[31m-                    <h2 class="ficha__seccao__titulo --fw-700" id="titulo-da-seccao-2">Secção 2: Rastreio de TB por tipo de teste</h2>[m
+[32m+[m[32m                    <h2 class="ficha__seccao__titulo --fw-700">SECÇÃO 2: RASTREIO DE TB POR TIPO DE TESTE</h2>[m
+                     <header class="ficha__seccao__header ficha__seccao__header--seccao-2 --border-b">[m
+                         <div class="--display-flex-xy-center --fw-700"></div>[m
+                         <div class="seccao-2__header__col-2 --cor-de-fundo-padrao ">[m
+[36m@@ -181,7 +181,7 @@[m
+                                 <div class="--display-flex-xy-center --border-l"><span>3</span></div>[m
+                                 <div class="--display-flex-xy-center --border-l"><span>4</span></div>[m
+                             </div>[m
+[31m-                            <div class="seccao-2__grid-template-cols-4">[m
+[32m+[m[32m                            <div class="seccao-2__grid-template-cols-4 seccao-2__header__exames">[m
+                                 <div class="--display-flex-xy-center --border-l"><span>Microscopia</span></div>[m
+                                 <div class="--display-flex-xy-center --border-l"><span>GeneXpert <br> MTB/RIF</span></div>[m
+                                 <div class="--display-flex-xy-center --border-l"><span>Truenat</span></div>[m
+[36m@@ -205,8 +205,8 @@[m
+                     </div>[m
+                 </section>[m
+                 <section class="ficha__seccao ficha__seccao--3 ficha__seccao--margin-t --border-b-thick">[m
+[31m-                    <h2 class="ficha__seccao__titulo --fw-700">Secção 3: Rastreio de TB por faixa etária</h2>[m
+[31m-                    <h3 class="ficha__seccao__titulo ficha__seccao__titulo--color-black --fw-700 --cor-de-fundo-padrao-discreta">3.1: Caso novo</h3>[m
+[32m+[m[32m                    <h2 class="ficha__seccao__titulo --fw-700">SECÇÃO 3: RASTREIO DE TB POR FAIXA ETÁRIA</h2>[m
+[32m+[m[32m                    <h3 class="ficha__seccao__titulo ficha__seccao__titulo--color-black --fw-700 --cor-de-fundo-padrao-discreta">3.1: CASO NOVO</h3>[m
+                     <header class="ficha__seccao__header --cor-de-fundo-padrao-discreta --border-t --border-b">[m
+                         <div class="ficha__header__col-variaveis --display-flex-xy-center --fw-700"><span>Variável</span></div>[m
+                         <div class="seccao__header__col-faixas-etarias seccao__header__col-faixas-etarias--grid-template-rows-3">[m
+[36m@@ -237,7 +237,7 @@[m
+                             </div>[m
+                         </div>[m
+                     </header>[m
+[31m-                    <div class="ficha__linha-com-indicador-e-inputs --border-b">[m
+[32m+[m[32m                    <div class="ficha__linha-com-indicador-e-inputs --border-b" data-subtitulo="3.1: CASO NOVO">[m
+                         <span>Pacientes submetidos ao exame de Xpert <br> MTB/XDR</span>[m
+                         <input type="number" min="0">[m
+                         <input type="number" min="0">[m
+[36m@@ -250,7 +250,7 @@[m
+                         <input type="number" min="0">[m
+                         <input type="number" min="0">[m
+                     </div>[m
+[31m-                    <div class="ficha__linha-com-indicador-e-inputs --border-b">[m
+[32m+[m[32m                    <div class="ficha__linha-com-indicador-e-inputs --border-b"  data-subtitulo="3.1: CASO NOVO">[m
+                         <span>Pacientes submetidos ao exame de Xpert <br> MTB/XDR com resistência a Isoniazida apenas</span>[m
+                         <input type="number" min="0">[m
+                         <input type="number" min="0">[m
+[36m@@ -263,7 +263,7 @@[m
+                         <input type="number" min="0">[m
+                         <input type="number" min="0">[m
+                     </div>[m
+[31m-                    <div class="ficha__linha-com-indicador-e-inputs ficha__linha-com-indicador-e-inputs--height-gt35 --border-b">[m
+[32m+[m[32m                    <div class="ficha__linha-com-indicador-e-inputs ficha__linha-com-indicador-e-inputs--height-gt35 --border-b"  data-subtitulo="3.1: CASO NOVO">[m
+                         <span>Pacientes submetidos ao exame de Xpert <br> MTB/XDR com resistência a Isoniazida e <br> Fluoroquinolonas</span>[m
+                         <input type="number" min="0">[m
+                         <input type="number" min="0">[m
+[36m@@ -276,7 +276,7 @@[m
+                         <input type="number" min="0">[m
+                         <input type="number" min="0">[m
+                     </div>[m
+[31m-                    <div class="ficha__linha-com-indicador-e-inputs ficha__linha-com-indicador-e-inputs--height-gt35 --border-b">[m
+[32m+[m[32m                    <div class="ficha__linha-com-indicador-e-inputs ficha__linha-com-indicador-e-inputs--height-gt35 --border-b"  data-subtitulo="3.1: CASO NOVO">[m
+                         <span>Pacientes submetidos ao exame de Xpert <br> MTB/XDR com resistência a fluoroquinolonas <br> apenas</span>[m
+                         <input type="number" min="0">[m
+                         <input type="number" min="0">[m
+[36m@@ -289,7 +289,7 @@[m
+                         <input type="number" min="0">[m
+                         <input type="number" min="0">[m
+                     </div>[m
+[31m-                    <h3 class="ficha__seccao__titulo ficha__seccao__titulo--color-black --fw-700 --cor-de-fundo-padrao-discreta">Secção 3.2: Previamente tratados</h3>[m
+[32m+[m[32m                    <h3 class="ficha__seccao__titulo ficha__seccao__titulo--color-black --fw-700 --cor-de-fundo-padrao-discreta">SECÇÃO 3.2: PREVIAMENTE TRATADOS</h3>[m
+                     <header class="ficha__seccao__header --cor-de-fundo-padrao-discreta --border-t --border-b">[m
+                         <div class="ficha__header__col-variaveis --display-flex-xy-center --fw-700"><span>Variável</span></div>[m
+                         <div class="seccao__header__col-faixas-etarias seccao__header__col-faixas-etarias--grid-template-rows-3">[m
+[36m@@ -320,7 +320,7 @@[m
+                             </div>[m
+                         </div>[m
+                     </header>[m
+[31m-                    <div class="ficha__linha-com-indicador-e-inputs ficha__linha-com-indicador-e-inputs--height-gt35 --border-b">[m
+[32m+[m[32m                    <div class="ficha__linha-com-indicador-e-inputs ficha__linha-com-indicador-e-inputs--height-gt35 --border-b" data-subtitulo="SECÇÃO 3.2: PREVIAMENTE TRATADOS">[m
+                         <span>Pacientes submetidos ao exame de Xpert <br> MTB/XDR</span>[m
+                         <input type="number" min="0">[m
+                         <input type="number" min="0">[m
+[36m@@ -333,7 +333,7 @@[m
+                         <input type="number" min="0">[m
+                         <input type="number" min="0">[m
+                     </div>[m
+[31m-                    <div class="ficha__linha-com-indicador-e-inputs ficha__linha-com-indicador-e-inputs--height-gt35 --border-b">[m
+[32m+[m[32m                    <div class="ficha__linha-com-indicador-e-inputs ficha__linha-com-indicador-e-inputs--height-gt35 --border-b" data-subtitulo="SECÇÃO 3.2: PREVIAMENTE TRATADOS">[m
+                         <span>Pacientes submetidos ao exame de Xpert <br> MTB/XDR com resistência a Isoniazida apenas</span>[m
+                         <input type="number" min="0">[m
+                         <input type="number" min="0">[m
+[36m@@ -346,7 +346,7 @@[m
+                         <input type="number" min="0">[m
+                         <input type="number" min="0">[m
+                     </div>[m
+[31m-                    <div class="ficha__linha-com-indicador-e-inputs ficha__linha-com-indicador-e-inputs--height-gt35 --border-b">[m
+[32m+[m[32m                    <div class="ficha__linha-com-indicador-e-inputs ficha__linha-com-indicador-e-inputs--height-gt35 --border-b" data-subtitulo="SECÇÃO 3.2: PREVIAMENTE TRATADOS">[m
+                         <span>Pacientes submetidos ao exame de Xpert <br> MTB/XDR com resistência a Isoniazida e <br> Fluoroquinolonas</span>[m
+                         <input type="number" min="0">[m
+                         <input type="number" min="0">[m
+[36m@@ -359,7 +359,7 @@[m
+                         <input type="number" min="0">[m
+                         <input type="number" min="0">[m
+                     </div>[m
+[31m-                    <div class=" ficha__linha-com-indicador-e-inputs ficha__linha-com-indicador-e-inputs--height-gt35 --border-b">[m
+[32m+[m[32m                    <div class=" ficha__linha-com-indicador-e-inputs ficha__linha-com-indicador-e-inputs--height-gt35 --border-b" data-subtitulo="SECÇÃO 3.2: PREVIAMENTE TRATADOS">[m
+                         <span>Pacientes submetidos ao exame de Xpert <br> MTB/XDR com resistência a fluoroquinolonas <br> apenas</span>[m
+                         <input type="number" min="0">[m
+                         <input type="number" min="0">[m
+[36m@@ -374,7 +374,7 @@[m
+                     </div>[m
+                 </section>[m
+                 <section class="ficha__seccao ficha__seccao--4">[m
+[31m-                    <h2 class="ficha__seccao__titulo --fw-700" id="titulo-da-seccao-4">Secção 4: Tipos de amostras </h2>[m
+[32m+[m[32m                    <h2 class="ficha__seccao__titulo --fw-700" id="titulo-da-seccao-4">SECÇÃO 4: TIPOS DE AMOSTRAS</h2>[m
+                     <header class="ficha__seccao__header ficha__seccao__header--seccao-4 --cor-de-fundo-padrao-discreta --border-b">[m
+                         <div class="--display-flex-xy-center --fw-700"></div>[m
+                         <div class="--display-flex-xy-center --border-l"><span>Expectoração</span></div>[m
+[36m@@ -395,7 +395,7 @@[m
+                     </div>[m
+                 </section>[m
+                 <section class="ficha__seccao ficha__seccao--5">[m
+[31m-                    <h2 class="ficha__seccao__titulo --fw-700" id="titulo-da-seccao-5">Secção 5: Qualidade de amostras de expectoração em pacientes presuntivos de TB</h2>[m
+[32m+[m[32m                    <h2 class="ficha__seccao__titulo --fw-700" id="titulo-da-seccao-5">SECÇÃO 5: QUALIDADE DE AMOSTRAS DE EXPECTORAÇÃO EM PACIENTES PRESUNTIVOS DE TB</h2>[m
+                     <header class="ficha__seccao__header ficha__seccao__header--seccao-5 --cor-de-fundo-padrao-discreta --border-b">[m
+                         <div class="--display-flex-xy-center --fw-700"></div>[m
+                         <div class="--display-flex-xy-center --border-l"><span>Saliva</span></div>[m
+[36m@@ -440,14 +440,14 @@[m
+                 </footer>[m
+           </div>[m
+             <div class="layout-row layout-row--obs layout-row--no-padding"">[m
+[31m-                <button class="obs__label --fw-700">Observações:</button>[m
+[32m+[m[32m                <span class="obs__label --fw-700">Observações:</span>[m
+                 <p contenteditable="true" id="input-obs" class="obs__input"></p>[m
+             </div>[m
+             <div class="reference --no-print">[m
+                 <div class="layout-row layout-row--of-reference">[m
+[31m-                    <span class="reference__label">Indicador:</span> [m
+[32m+[m[32m                    <span class="reference__label">Linha:</span>[m[41m [m
+                     <output class="reference__output reference__output--indicador --display-flex-y-center"></output>[m
+[31m-                    <span class="reference__label">Faixa etária:</span> [m
+[32m+[m[32m                    <span class="reference__label">Coluna:</span>[m[41m [m
+                     <output class="reference__output reference__output--idade --display-flex-xy-center --fw-700"></output>[m
+                 </div>[m
+             </div>[m
+[36m@@ -455,9 +455,9 @@[m
+         <section class="dialog-boxes --no-print">[m
+             <div class="dialog-box-default dialog-box-default--sobre-aqd">[m
+                 <h3 class="dialog-box-default__title">Ficha de Resumo Mensal de Exames Laboratoriais de TB</h3>[m
+[31m-                <p class="dialog-box-default__p">O totalizador garante um resumo correctamente totalizado, contudo, um resumo mensal de qualidade não se limita apenas à uma correcta totalização. Outros factores não dependentes do totalizador como preenchimento correcto dos livros de registo, colheita de dados abrangente a todas as fontes primárias (livros de registo) com informação do mês em reporte, concordância de dados, entre outros, influenciam sobremaneira na qualidade de um resumo mensal.</p>[m
+[32m+[m[32m                <p class="dialog-box-default__p">As células da ficha são interativas, isto é, pode inserir valores nelas.</p>[m
+                 <div class="dialog-box-default__btn-container">[m
+[31m-                    <button class="dialog-box-default__btn dialog-box-default__btn--aqd">Entendi</button>[m
+[32m+[m[32m                    <button class="dialog-box-default__btn dialog-box-default__btn--aqd">Fechar</button>[m
+                 </div>[m
+             </div>[m
+             <div class="dialog-box-default dialog-box-default--small">[m
+[36m@@ -537,8 +537,21 @@[m
+                     <ul class="artigo__lista artigo__lista--ul">[m
+                         <li>Expandir o acesso à ficha de resumo mensal de exames laboratoriais de TB.</li>[m
+                     </ul>[m
+[32m+[m[32m                    <h3 class="artigo__titulo artigo__titulo--nivel-2 ">O que eu preciso dispor para, e como utilizar o serviço?</h3>[m
+[32m+[m[32m                    <ul class="artigo__lista artigo__lista--ul">[m
+[32m+[m[32m                        <li>Um celular ou computador com acesso à internet;</li>[m
+[32m+[m[32m                        <li>Ter colhido os dados de todos os indicadores da ficha nas respectivas fontes primárias (livro(s) de registo) da sua Unidade Sanitária;</li>[m
+[32m+[m[32m                        <li>E por fim, preencher os dados nas células correspondentes em função das variáveis (indicador e faixa etária).</li>[m
+[32m+[m[32m                    </ul>[m
+                     <h3 class="artigo__titulo artigo__titulo--nivel-2">Qual é o destino dos dados que eu insiro?</h3>[m
+[31m-                    <p>São guardados no seu celular ou computador, por meio de um recurso chamado <a href="https://developer.mozilla.org/pt-BR/docs/Web/API/Web_Storage_API" target="_blank">Web Storage</a> e você tem total controle sobre os dados, podendo mantê-los ou apagá-los por meio da opção "<b>Esvaziar ficha</b>" no menu do totalizador ou excluindo os dados de navegação (histórico) do navegador.</p>[m
+[32m+[m[32m                    <p>São guardados no seu celular ou computador, por meio de um recurso chamado <a href="https://developer.mozilla.org/pt-BR/docs/Web/API/Web_Storage_API" target="_blank">Web Storage</a> e você tem total controle sobre os dados, podendo mantê-los ou apagá-los por meio da opção "<b>Esvaziar ficha</b>" no cabeçalho da página ou excluindo os dados de navegação do seu navegador.</p>[m
+[32m+[m[32m                    <h3 class="artigo__titulo artigo__titulo--nivel-2">Vantagens do serviço</h3>[m
+[32m+[m[32m                <ul class="artigo__lista artigo__lista--ul">[m
+[32m+[m[32m                    <li>As células são interativas, ou seja, pode inserir valores nelas;</li>[m
+[32m+[m[32m                    <li>Flexibiliza a elaboração do resumo;</li>[m
+[32m+[m[32m                    <li>Pode ser impresso, inclusíve como uma simples ficha de resumo mensal;</li>[m
+[32m+[m[32m                    <li>Pode ser guardado como PDF.</li>[m
+[32m+[m[32m                </ul>[m
+                 <button class="artigo__btn-x artigo__btn-x--fechar-sobre" title="Fechar">&times;</button>[m
+             </article>[m
+             <article class="artigo artigo--ajuda layout-row layout-row--no-padding">[m
+[36m@@ -555,13 +568,13 @@[m
+                     <summary class="details__summary">Salvar ficha como PDF</summary>[m
+                     <h3 class="artigo__titulo artigo__titulo--nivel-2 artigo__titulo--cor-discreta artigo__titulo--no-border-t">No computador:</h3>[m
+                     <ol class="artigo__lista artigo__lista--ol">[m
+[31m-                        <li>Clique na opção <mark class="details__mark">Imprimir</mark> no menu do totalizador.</li>[m
+[32m+[m[32m                        <li>Clique na opção <mark class="details__mark">Imprimir</mark> no menu da página.</li>[m
+                         <li>Na janela que abrirá, no campo de <mark class="details__mark">Impressora</mark> ou <mark class="details__mark">Destino</mark>, selecione a opção <mark class="details__mark">Salvar&nbsp;como&nbsp;PDF</mark>.</li>[m
+                         <li>Por fim, clique em <mark class="details__mark">Salvar</mark> e escolha um destino no seu computador.</li>[m
+                     </ol>[m
+                     <h3  class="artigo__titulo artigo__titulo--nivel-2 artigo__titulo--cor-discreta">No celular / tablet:</h3>[m
+                     <ol class="artigo__lista artigo__lista--ol">[m
+[31m-                        <li>Toque na opção <mark class="details__mark">Salvar como PDF</mark> no cabeçalho do totalizador.</li>[m
+[32m+[m[32m                        <li>Toque na opção <mark class="details__mark">Salvar como PDF</mark> no cabeçalho da página.</li>[m
+                         <li>Na janela seguinte, se não vir a opção <mark class="details__mark">Guardar como PDF</mark>, toque em<mark class="details__mark"><b>Selec. impressora</b></mark>.</li>[m
+                         <figure class="details__moldura">[m
+                             <img src="imagens/salvar-ficha-como-pdf-1.png" alt="Como salvar a ficha em PDF no celular" class="artigo__img" />[m
+[36m@@ -574,10 +587,10 @@[m
+                 </details>[m
+                 <details class="artigo__details artigo__details--border-b artigo__details--motivo-de-celulas-vermelhas">[m
+                     <summary class="details__summary">Algumas células ficaram vermelhas</summary>[m
+[31m-                    <p>A maioria das células do totalizador têm um tamanho para conter visivelmente 8 algarismos no máximo, isto é, mostram valores até <span class="number-format">99999999</span>, embora algumas excepcionalmente possam mostrar valores com mais de 27 algarismos. Quando uma célula recebe um valor com mais de 8 algarismos, dá um alerta ficando vermelha e abrindo esta mensagem de texto para alertá-lo sobre a omissão dos algarismos e o real motivo.</p>[m
+[31m-                    <p class="artigo__p--destaque">Para um país como Moçambique, onde o número de habitantes é de pouco mais de 30 milhões (<a href="https://energypedia.info/wiki/Moçambique:_Informação_sobre_o_País" target="_blank">dados demográficos de 2019</a>), podemos presumir que nenhuma Unidade Sanitária actualmente tem um número mensal de dados de algum indicador, de qualquer que seja a sua natureza, acima de <span class="number-format">999999</span>.</p>[m
+[32m+[m[32m                    <p>A maioria das células têm um tamanho para conter visivelmente 9 algarismos no máximo, isto é, mostram valores até <span class="number-format">999999999</span>, embora algumas excepcionalmente possam mostrar valores com mais de 13 algarismos. Quando uma célula recebe um valor com mais de 8 algarismos, dá um alerta ficando vermelha e abrindo esta mensagem de texto para alertá-lo sobre a omissão dos algarismos e o real motivo.</p>[m
+[32m+[m[32m                    <p class="artigo__p--destaque">Para um país como Moçambique, onde o número de habitantes é de pouco mais de 30 milhões (<a href="https://energypedia.info/wiki/Moçambique:_Informação_sobre_o_País" target="_blank">dados demográficos de 2019</a>), podemos presumir que nenhuma Unidade Sanitária actualmente tem um número mensal de dados de algum indicador, de qualquer que seja a sua natureza, acima de <span class="number-format">999999999</span>.</p>[m
+                 </details>[m
+[31m-                <p class="artigo-ajuda__p--contactar-suporte">Se os tópicos acima não cobrem a sua dúvida. Pode ainda solicitar suporte por <a href="mailto:quinamine.aderitofelix@gmail.com?subject=Totalizador%20de%20Resumo%20Mensal%20de%20TB%20e%20TB%2FHIV">Email</a> ou <a href="https://wa.me/258846709901/?text=Olá%2C+Quinamine!+Sobre+o+*totalizador+de+resumo+mensal+de+notificação+de+TB+e+TB%2FHIV*%2C+tenho+a+seguinte+dúvida%3A%20">WhatsApp</a>.</p>[m
+[32m+[m[32m                <p class="artigo-ajuda__p--contactar-suporte">Se os tópicos acima não cobrem a sua dúvida. Pode ainda solicitar suporte por <a href="mailto:quinamine.aderitofelix@gmail.com?subject=Ficha%20de%20Resumo%20Mensal%20de%20Exames%20Laboratoriais%20de%20TB">Email</a> ou <a href="https://wa.me/258846709901/?text=Olá%2C+Quinamine!+Sobre+o+serviço+*Ficha+de+Resumo+Mensal+de+Exames+Laboratoriais+de+TB*%2C+tenho+a+seguinte+dúvida%3A%20">WhatsApp</a>.</p>[m
+                 <button class="artigo__btn-x artigo__btn-x--fechar-ajuda" title="Fechar">&times;</button>[m
+             </article>[m
+         </section>[m
+[36m@@ -592,6 +605,7 @@[m
+                         <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-consultas/index.html class="footer__nav__link">Totalizador de Resumo Mensal de Consultas</a></li>[m
+                         <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-hiv-e-sida/index.html class="footer__nav__link">Totalizador de Resumo Mensal de HIV/SIDA</a></li>[m
+                         <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-malaria/index.html class="footer__nav__link">Totalizador de Resumo Mensal de Malária</a></li>[m
+[32m+[m[32m                        <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-notificacao-de-tb-e-tb-hiv/index.html class="footer__nav__link">Totalizador de Resumo Mensal de Notificação de TB e TB/HIV</a></li>[m
+                         <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-prn-i/index.html class="footer__nav__link">Totalizador de Resumo Mensal de PRN I</a></li>[m
+                         <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-prn-ii/index.html class="footer__nav__link">Totalizador de Resumo Mensal de PRN II</a></li>[m
+                         <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-saaj/index.html class="footer__nav__link">Totalizador de Resumo Mensal de SAAJ</a></li>[m
+[36m@@ -606,7 +620,7 @@[m
+                 <p class="footer__p footer__p--created-by">Criado com atenção e <span class="footer__p__heart">❤</span> por <a href=https://quinamine.github.io/aderito-felix-quinamine/index.html title="Acessar biografia &raquo;">Adérito Félix Quinamine</a> | ©&nbsp;<span class="footer__current-year"></span> Ficha de Resumo Mensal de Exames Laboratoriais de TB</p>[m
+                 <a href=#root class=footer__link--back-to-top>Rolar para o topo</a>[m
+             </div>[m
+[31m-            <p class="footer__p footer__p--available-since">Disponível desde <time datetime="2024-10-19">19/10/2024</time>.</p>[m
+[32m+[m[32m            <p class="footer__p footer__p--available-since">Disponível desde <time datetime="2024-10-19">20/10/2024</time>.</p>[m
+         </footer>[m
+         <div class="desfoque"></div>[m
+     </body>[m
+[1mdiff --git a/readme.md b/readme.md[m
+[1mindex 15a9c2e..706dc5b 100644[m
+[1m--- a/readme.md[m
+[1m+++ b/readme.md[m
+[36m@@ -1,45 +1,32 @@[m
+ # Ficha de Resumo Mensal de Exames Laboratoriais de TB[m
+ [m
+[31m-![Trecho do Totalizador do Resumo Mensal de Notificação de TB e TB/HIV](imagens/ficha-de-resumo-mensal-de-exames-laboratoriais-de-tb.png)[m
+[32m+[m[32m![Trecho do serviço Ficha de Resumo Mensal de Exames Laboratoriais de TB](imagens/ficha-de-resumo-mensal-de-exames-laboratoriais-de-tb.png)[m
+ [m
+[31m-O **Ficha de Resumo Mensal de Exames Laboratoriais de TB** é um serviço online gratuito que auxilia na elaboração do resumo mensal de notificação de TB e TB/HIV, por meio do cálculo automático dos totais com base nos dados preenchidos pelo usuário. Foi criado de acordo com o modelo da respectiva ficha de resumo mensal actualmente vigente no Serviço Nacional de Saúde em Moçambique.[m
+[32m+[m[32mO serviço foi criado de acordo com o modelo da ficha de resumo mensal de exames laboratoriais de TB actualmente vigente no Serviço Nacional de Saúde em Moçambique e as células são interativas, isto é, pode inserir valores nelas.[m
+ [m
+ [m
+[31m-## Objectivos[m
+[32m+[m[32m## Propósito[m
+ [m
+[31m-* Auxiliar os Profissionais de Saúde na totalização do resumo mensal de notificação de TB e TB/HIV com exatidão e prontidão;[m
+[31m-[m
+[31m-* Minimizar possíveis erros de totalização (por exemplo, somar involuntariamente células não correspondentes ou registar o total da linha A, na linha B);[m
+[31m-[m
+[31m-* Expandir o acesso à ficha de resumo mensal de notificação de TB e TB/HIV.[m
+[32m+[m[32m* Expandir o acesso à ficha de resumo mensal de exames laboratoriais de TB.[m
+ [m
+ [m
+ ## O que eu preciso dispor para, e como utilizar o totalizador?[m
+ [m
+[31m-* Um celular ou computador com acesso à internet.[m
+[31m-[m
+[31m-* Ter colhido os dados de todos os indicadores da ficha nas fontes primárias (livro(s) de registo) da sua Unidade Sanitária.[m
+[31m-[m
+[31m-* E por fim, preencher os dados nas células correspondentes em função das variáveis (indicador, faixa etária e sexo) e consequentemente os respectivos totais são, em tempo real, correcta e automaticamente calculados.[m
+[32m+[m[32m* Um celular ou computador com acesso à internet;[m
+ [m
+[32m+[m[32m* Ter colhido os dados de todos os indicadores da ficha nas respectivas fontes primárias (livro(s) de registo) da sua Unidade Sanitária;[m
+ [m
+[31m->[!NOTE][m
+[31m->[m
+[31m-> O totalizador garante um resumo correctamente totalizado, contudo, um resumo mensal de qualidade não se limita apenas à uma correcta totalização. Outros factores não dependentes do totalizador como preenchimento correcto dos livros de registo, colheita de dados abrangente a todas as fontes primárias (livros de registo) com informação do mês em reporte, concordância de dados, entre outros, influenciam sobremaneira na qualidade de um resumo mensal.[m
+[32m+[m[32m* E por fim, preencher os dados nas células correspondentes em função das variáveis (indicador, faixa etária e sexo).[m
+ [m
+ [m
+ ## Qual é o destino dos dados que eu insiro?[m
+ [m
+[31m-São guardados no seu celular ou computador, por meio de um recurso chamado [Web Storage](https://developer.mozilla.org/pt-BR/docs/Web/API/Web_Storage_API) e você tem total controle sobre os dados, podendo mantê-los ou apagá-los por meio da opção "Esvaziar ficha" no menu do totalizador ou excluindo os dados de navegação (histórico) do navegador.[m
+[32m+[m[32mSão guardados no seu celular ou computador, por meio de um recurso chamado [Web Storage](https://developer.mozilla.org/pt-BR/docs/Web/API/Web_Storage_API) e você tem total controle sobre os dados, podendo mantê-los ou apagá-los por meio da opção "Esvaziar ficha" no cabeçalho da página ou excluindo os dados de navegação do seu navegador.[m
+ [m
+ [m
+[31m-## Vantagens do totalizador[m
+[32m+[m[32m## Vantagens do serviço[m
+ [m
+[31m-* Calcula automaticamente os totais;[m
+[31m-[m
+[31m-* Preenche automaticamente as células correspondentes aos totais;[m
+[31m-[m
+[31m-* Fornece resultados (totais) exactos;[m
+[32m+[m[32m* As células são interativas, ou seja, pode inserir valores nelas;;[m
+ [m
+ * Flexibiliza a elaboração do resumo;[m
+ [m
+[36m@@ -47,7 +34,3 @@[m [mSão guardados no seu celular ou computador, por meio de um recurso chamado [Web[m
+ [m
+ * Pode ser guardado como PDF.[m
+ [m
+[31m-[m
+[31m-## Limitações do totalizador[m
+[31m-[m
+[31m-* Não alerta sobre discrepância de dados, portanto, a análise da concordância dos dados é inteiramente dependente do usuário.[m
+\ No newline at end of file[m

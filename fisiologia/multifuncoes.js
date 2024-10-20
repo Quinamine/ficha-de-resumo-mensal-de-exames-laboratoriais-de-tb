@@ -1,5 +1,5 @@
 ﻿"use strict"
-var keyPrefix = "trmtb";
+var keyPrefix = "frml";
 function desfoqueDoFundo(accao) {
     const desfoque = document.querySelector(".desfoque");
     accao === "desfocar" ? 
@@ -30,15 +30,15 @@ function destacarCelulasComConteudoOmisso() {
         c.classList.remove("input--font-small");
         c.classList.remove("input--bg-color-danger");
         if(c.clientWidth > 100) {
-            if(c.value.length > 27) {
+            if(c.value.length > 13) {
                 c.classList.add("input--bg-color-danger");
                 celulasSaturadas++;
             }
             
         } else {
-            if(c.value.length === 8) {
+            if(c.value.length === 9) {
                 c.classList.add("input--font-small");
-            } else if(c.value.length > 8) {
+            } else if(c.value.length > 9) {
                 c.classList.add("input--bg-color-danger");
                 celulasSaturadas++;
             }
@@ -106,6 +106,9 @@ window.addEventListener("load", () => {
     destacarCelulasComConteudoOmisso();
     actualizarAnoDeCopyright()
     formatarNumeros();
+    aqd.mostrarAviso();
+    const dialogBoxAQD__btn = document.querySelector(".dialog-box-default__btn--aqd");
+    dialogBoxAQD__btn.addEventListener("click", aqd.salvarCiencia);
     // Animar Caixa de diálogo "Esvaziar ficha"
     const desfoque = document.querySelector(".desfoque");
     desfoque.addEventListener("mousedown", event => animarCaixaDeDialogo(event.type));

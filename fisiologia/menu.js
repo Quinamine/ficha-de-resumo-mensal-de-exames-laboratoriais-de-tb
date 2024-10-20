@@ -143,14 +143,14 @@ function eventos() {
     // PARTILHAR 
     const data = {
         title: "Ficha de Resumo Mensal de Exames Laboratoriais de TB",
-        text: "As células da ficha são interativas, pode inserir valores nelas.",
+        text: "As células da ficha são interativas, isto é, pode inserir valores nelas.",
         url: "https://quinamine.github.io/ficha-de-resumo-mensal-de-exames-laboratoriais-de-tb/index.html"
     }
     const btnPartilhar = document.querySelector(".header__menu__btn--partilhar");
     btnPartilhar.addEventListener("click", () => {
         try {
-            navigator.share(data).then(()=>console.log("Totalizador partilhado com sucesso."))
-            .catch(e=> console.log(`Não foi possivel partilhar o totalizador devido ao erro: ${e}.`))
+            navigator.share(data).then(()=>console.log("Serviço partilhado com sucesso."))
+            .catch(e=> console.log(`Não foi possivel partilhar o serviço devido ao erro: ${e}.`))
         } catch (e) {
             console.log("O seu navegador não tem suporte ao método 'navigator.share()'.")
         }

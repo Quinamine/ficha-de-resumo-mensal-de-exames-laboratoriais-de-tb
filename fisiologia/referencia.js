@@ -1,69 +1,35 @@
 "use strict"
 const referencia = {
-    retornarIndicadorEfaixaEtaria(inputTarget) {
-        const indicadorOutput = document.querySelector(".reference__output--indicador");
-        const faixaEtariaOutput = document.querySelector(".reference__output--idade");
+    retornarLinhaEcoluna(inputTarget) {
+        const linhaOutput = document.querySelector(".reference__output--indicador");
+        const colunaOutput = document.querySelector(".reference__output--idade");
         const celulaComFocoEirmas = inputTarget.parentElement.children;
         // Seccoes
-        let isSection1 = inputTarget.parentElement.parentElement.matches(".ficha__seccao__body--1");
-        let isSection2 = inputTarget.parentElement.parentElement.matches(".ficha__seccao__body--2");
-        let isSection3 = inputTarget.parentElement.matches(".ficha__seccao__body--3");
-        let isSection4 = inputTarget.parentElement.parentElement.matches(".ficha__seccao__body--4");
-        let isSubSection4 = inputTarget.parentElement.matches(".ficha__seccao-4__pseudo-body")
-        if(isSection1) {
-            const indicadores = document.querySelectorAll(".ficha__seccao-1__subcol-de-indicadores--1 span");
-            const subindicadores = document.querySelectorAll(".ficha__seccao-1__subcol-de-indicadores--2 span");
-            let celulaFocadaIndex;
-            let indicadorIndex, subindicadorIndex;           
-            for(let i = 0; i < celulaComFocoEirmas.length; i++) {
-                if(inputTarget === celulaComFocoEirmas[i]) {
-                    celulaFocadaIndex = i;
-                    indicadorIndex = i < 4 ? 0
-                    : i < 8 ? 1
-                    : 2;
-                    subindicadorIndex = i;
-                }
-            }
-            indicadorOutput.textContent = `${indicadores[indicadorIndex].textContent}: ${subindicadores[subindicadorIndex].textContent}`;
-            faixaEtariaOutput.textContent = inputTarget.parentElement.dataset.faixaetaria;
-        } else if(isSubSection4) {
-            let tituloDaSeccao = document.querySelector(".ficha__seccao-4__subtitulo--2");
-            let indicadores = document.querySelectorAll(".indicadores-da-subseccao-4 span");
-            let celulaFocadaIndex;           
-            for(let i = 0; i < celulaComFocoEirmas.length; i++) {
-                if(inputTarget === celulaComFocoEirmas[i]) {
-                    celulaFocadaIndex = i;
-                }
-            }
-            indicadorOutput.textContent = `${tituloDaSeccao.textContent}: ${indicadores[celulaFocadaIndex].textContent}`;
-            faixaEtariaOutput.textContent = "-";
-        } else {
-            let tituloDaSeccao;
-            if(isSection2) {
-                tituloDaSeccao = document.querySelector("#titulo-da-seccao-2");
-            }
-            else if(isSection3) {
-                tituloDaSeccao = document.querySelector("#titulo-da-seccao-3");
-                let indicador = `${tituloDaSeccao.textContent}: ${celulaComFocoEirmas[0].textContent}`;
-                indicadorOutput.textContent = indicador;
-                faixaEtariaOutput.textContent = "-";
-                return !1;
-            } else if(isSection4) {
-                tituloDaSeccao = document.querySelector("#titulo-da-seccao-4")
-            } else {
-                tituloDaSeccao = document.querySelector("#titulo-da-seccao-5");
-            }
-            let indicador = `${tituloDaSeccao.textContent}: ${celulaComFocoEirmas[0].textContent}`;
-            indicadorOutput.textContent = indicador;
-            let faixasEtarias = ["0 - 4","5 - 9","10 - 14","15 - 19","20 - 24","25 - 34","35 - 44","45 - 54","55 - 64","≥ 65"];
-            let celulaFocadaIndex;           
-            for(let i = 0; i < celulaComFocoEirmas.length; i++) {
-                if(inputTarget === celulaComFocoEirmas[i]) {
-                    celulaFocadaIndex = i - 1;
-                }
-            }
-            faixaEtariaOutput.textContent = faixasEtarias[celulaFocadaIndex];
+        let isSection2 = inputTarget.parentElement.parentElement.matches(".ficha__seccao--2");
+        let isSection3 = inputTarget.parentElement.parentElement.matches(".ficha__seccao--3");
+        let isSection4 = inputTarget.parentElement.parentElement.matches(".ficha__seccao--4");
+        let isSection5 = inputTarget.parentElement.parentElement.matches(".ficha__seccao--5");
+        let tituloDaSeccao = inputTarget.parentElement.parentElement.children[0].textContent;
+        if(isSection3) {
+            let subtituloDaSeccao = inputTarget.parentElement.dataset.subtitulo;
+            tituloDaSeccao = `${tituloDaSeccao}: ${subtituloDaSeccao}`
         }
+        let linha = inputTarget.parentElement.children[0].textContent;
+        let colVariables, inputTargetIndex;
+        for(let i = 0; i < celulaComFocoEirmas.length; i++) {
+            if(celulaComFocoEirmas[i] === inputTarget) inputTargetIndex = i - 1;
+        }
+        if(isSection2) {
+            colVariables = document.querySelectorAll(".seccao-2__header__exames span");
+        } else if(isSection4) {
+            colVariables = document.querySelectorAll(".ficha__seccao__header--seccao-4 span");
+        } else if(isSection5) {
+            colVariables = document.querySelectorAll(".ficha__seccao__header--seccao-5 span");
+        } else {
+            colVariables = document.querySelectorAll(".linha-de-faixas-etarias--seccao-1 span");
+        }
+        linhaOutput.innerHTML = `${tituloDaSeccao}: ${linha}`;
+        colunaOutput.innerHTML = colVariables[inputTargetIndex].textContent;
     },
     retornarVazio() {
         const outputs = document.querySelectorAll(".reference__output");
@@ -75,7 +41,7 @@ function events() {
     inputsCelulares.forEach( inputCelular => {
         inputCelular.addEventListener("focus", () => {
             if(!inputCelular.matches("[readonly]")) {
-                referencia.retornarIndicadorEfaixaEtaria(inputCelular);
+                referencia.retornarLinhaEcoluna(inputCelular);
             }
         });
     });
