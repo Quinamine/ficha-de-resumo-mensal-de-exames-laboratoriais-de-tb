@@ -42,7 +42,7 @@
         </div>
         <div class="topo-info --no-print">
             <div class="topo-info__row">
-                <a href=https://quinamine.github.io/aderito-felix-quinamine/paginas/portfolio.html class="topo-info__link info-content info-content--no-shadow">Neste link estão todos os totalizadores de resumos mensais e trimestrais. <span class="topo-info__link__trecho-acessar">Acessar&nbsp;&raquo;<span></a></a>
+                <a href=https://quinamine.github.io/aderito-felix-quinamine/paginas/portfolio.html class="topo-info__link info-content info-content--no-shadow"><span class="--hide-on-mobile">Clique</span><span class="--hide-on-desktop">Toque</span> aqui para <span class="topo-info__link__trecho-acessar --cursor-pointer">acessar</span> mais totalizadores de resumos mensais e/ou trimestrais.</a>
                 <button class="topo-info__btn" title="Fechar">&times;</button>
             </div>
         </div>
@@ -76,7 +76,7 @@
                     </ul>
 					<div class="tooltip tooltip--menu-ajuda --on">
                         <div class="tooltip__arrow tooltip__arrow--menu-ajuda"></div>
-                        <p class="tooltip__tip">Acesse este artigo para saber mais sobre as funcionalidades do totalizador<span class="--hide-on-mobile">, inclusive "<b>Salvar a ficha como PDF</b>"</span>.</p>
+                        <p class="tooltip__tip"><span class="--hide-on-mobile">Clique</span><span class="--hide-on-desktop">Toque</span> aqui para saber mais sobre as funcionalidades do totalizador.</p>
                     </div>
                 </div>
             </div>
@@ -475,7 +475,7 @@
             </button>
             <div class="tooltip tooltip--vazioigualzero --no-print">
                 <div class="tooltip__arrow"></div>
-                <p class="tooltip__tip">Este botão é um atalho, use-o para preencher células vazias com o valor "<b>0</b>".</p>
+                <p class="tooltip__tip"><span class="--hide-on-mobile">Clique</span><span class="--hide-on-desktop">Toque</span> neste botão para preencher células vazias com zero (0).</p>
             </div>
             <div class="layout-row layout-row--obs layout-row--no-padding">
                 <span class="obs__label --fw-700">Observações:</span>
@@ -524,7 +524,7 @@
                     <p class="dialog-box-esvaziar-ficha__p dialog-box-esvaziar-ficha__p--alerta">Esta acção não pode ser desfeita.</p>
                 </div>
                 <h4 class="dialog-box-esvaziar-ficha__titulo dialog-box-esvaziar-ficha__titulo--no-margin-b --fw-700">Inclusive os campos de:</h4>
-                <p class="dialog-box-esvaziar-ficha__p dialog-box-esvaziar-ficha__p--fs-small">Desmarque os que não deseja esvaziar.</p>
+                <p class="dialog-box-esvaziar-ficha__p dialog-box-esvaziar-ficha__p-tooltip"><span class="--hide-on-mobile">Clique</span><span class="--hide-on-desktop">Toque</span> para desmarcar os que não deseja esvaziar. <span class="artigo-ajuda__p-tooltip__arrow"></span></p>
                 <ul class=dialog-box-esvaziar-ficha__ul-dados-adicionais>
 					<li>
                         <input type=checkbox checked id="checkbox-us" data-for=input-us>
@@ -595,6 +595,7 @@
             </article>
             <article class="artigo artigo--ajuda layout-row layout-row--no-padding">
                 <h2 class="artigo__titulo artigo__titulo--nivel-1 artigo__titulo--ajuda-e-procedimentos">Ajuda e Procedimentos</h2>
+                <p class="artigo-ajuda__p--smaller artigo-ajuda__p-tooltip"><span class="--hide-on-mobile">Clique</span><span class="--hide-on-desktop">Toque</span> num título para ler o conteúdo relacionado. <span class="artigo-ajuda__p-tooltip__arrow"></span></p>
                 <details class="artigo__details">
                     <summary class="details__summary">Instruções de preenchimento</summary>
                     <h3 class="artigo__titulo artigo__titulo--nivel-2 artigo__titulo--no-border-t artigo__titulo--margin-t">CABEÇALHO</h3>
@@ -715,7 +716,7 @@
                         <img src="imagens/atalho-celula-vazia-igual-a-zero.png" alt="Atalho 'Célula vazia igual a zero'" class="artigo__img" />
                     </figure>
                 </details>
-                <p class="artigo-ajuda__p--contactar-suporte">Se os tópicos acima não cobrem as suas dúvidas, pode ainda solicitar suporte ao desenvolvedor através do endereço electrónico <a href="mailto:quinamine.aderitofelix@gmail.com?subject=Ficha%20de%20Resumo%20Mensal%20de%20Exames%20Laboratoriais%20de%20TB">quinamine.aderitofelix@gmail.com</a> ou através do <a href="https://wa.me/258846709901/?text=Olá%2C+Quinamine!+Sobre+o+serviço+*Ficha+de+Resumo+Mensal+de+Exames+Laboratoriais+de+TB*%2C+tenho+a+seguinte+dúvida%3A%20">WhatsApp</a>.</p>
+                <p class="artigo-ajuda__p--smaller">Se os tópicos acima não cobrem as suas dúvidas, pode ainda solicitar suporte ao desenvolvedor através do endereço electrónico <a href="mailto:quinamine.aderitofelix@gmail.com?subject=Ficha%20de%20Resumo%20Mensal%20de%20Exames%20Laboratoriais%20de%20TB">quinamine.aderitofelix@gmail.com</a> ou através do <a href="https://wa.me/258846709901/?text=Olá%2C+Quinamine!+Sobre+o+serviço+*Ficha+de+Resumo+Mensal+de+Exames+Laboratoriais+de+TB*%2C+tenho+a+seguinte+dúvida%3A%20">WhatsApp</a>.</p>
                 <button class="artigo__btn-x artigo__btn-x--fechar-ajuda" title="Fechar">&times;</button>
             </article>
         </section>
@@ -724,27 +725,28 @@
                 <nav class=footer__nav>
                     <h4 class="footer__nav__title">Hiperligações para outros serviços afins</h4>
                     <ul>
+                        <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-nutricao/index.html class="footer__nav__link">Totalizador de Resumo Mensal de Nutrição</a></li>
                         <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-its/index.html class="footer__nav__link">Totalizador de Resumo Mensal de ITS</a></li>
                         <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-doenca-avancada-por-hiv/index.html class="footer__nav__link">Totalizador de Resumo Mensal de Doença Avançada por HIV</a></li>
                         <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-prep/index.html class="footer__nav__link">Totalizador de Resumo Mensal de PrEP</a></li>
-                        <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-rastreio-e-investigacao-de-tb-contactos-e-inicio-de-tpt/index.html class="footer__nav__link">Totalizador de Resumo Mensal de Rastreio e Investigação de TB, Contactos e Início de TPT</a></li>
-                        <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-vigilancia-e-notificacao-de-tb-resistente/index.html class="footer__nav__link">Totalizador de Resumo Mensal de Vigilância e Notificação de TB Resistente</a></li>
-                        <li><a href=https://quinamine.github.io/ficha-de-resumo-trimestral-de-avaliacao-de-resultados-intermediarios-de-tto-de-tb-resistente/index.html class="footer__nav__link">Ficha de Resumo Trimestral de Avaliação de Resultados Intermediários de Tratamento de TB Resistente</a></li>
-                        <li><a href=https://quinamine.github.io/totalizador-de-resumo-trimestral-de-avaliacao-de-tto-de-tb-resistente/index.html class="footer__nav__link">Totalizador de Resumo Trimestral de Avaliação de Tratamento de TB Resistente</a></li>
-                        <li><a href=https://quinamine.github.io/totalizador-de-resumo-trimestral-das-actividades-de-apoio-psicossocial-mod-sis-pnct-apss-11-a/index.html class="footer__nav__link">Totalizador de Resumo Trimestral das Actividades de Apoio Psicossocial (MOD. SIS - PNCT APSS 11A)</a></li>
-                        <li><a href=https://quinamine.github.io/totalizador-de-resumo-trimestral-de-fortalecimento-de-sistemas-para-tb/index.html class="footer__nav__link">Totalizador de Resumo Trimestral de Fortalecimento de Sistemas para TB</a></li>
-                        <li><a href=https://quinamine.github.io/totalizador-de-resumo-trimestral-de-cuidados-de-tb-na-comunidade-e-parcerias-publico-privadas/index.html class="footer__nav__link">Totalizador de Resumo Trimestral de Cuidados de TB na Comunidade e Parcerias Público-Privadas</a></li>
-                        <li><a href=https://quinamine.github.io/ficha-de-resumo-trimestral-de-cuidados-de-tb-em-grupos-de-alto-risco/index.html class="footer__nav__link">Ficha de Resumo Trimestral de Cuidados de TB em Grupos de Alto Risco</a></li>
-                        <li><a href=https://quinamine.github.io/ficha-de-resumo-mensal-de-exames-laboratoriais-de-tb/index.html class="footer__nav__link" class="footer__nav__link">Ficha de Resumo Mensal de Exames Laboratoriais de TB</a></li>
-                        <li><a href=https://quinamine.github.io/totalizador-de-resumo-trimestral-de-avaliacao-de-tto-de-tb-e-tb-hiv/index.html class="footer__nav__link">Totalizador de Resumo Trimestral de Avaliação de Tratamento de TB e TB/HIV</a></li>
+                        <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-rastreio-e-investigacao-de-tb-contactos-e-inicio-de-tpt/index.html class="footer__nav__link">Totalizador de Resumo Mensal de Rastreio e Investigação de TB, Contactos e Início de TPT (MOD. SIS PNCT IC-10A)</a></li>
+                        <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-vigilancia-e-notificacao-de-tb-resistente/index.html class="footer__nav__link">Totalizador de Resumo Mensal de Vigilância e Notificação de TB Resistente (MOD. SIS-PNCT R05)</a></li>
+                        <li><a href=https://quinamine.github.io/ficha-de-resumo-trimestral-de-avaliacao-de-resultados-intermediarios-de-tto-de-tb-resistente/index.html class="footer__nav__link">Ficha de Resumo Trimestral de Avaliação de Resultados Intermediários de Tratamento de TB Resistente (MOD. SIS-PNCT R06)</a></li>
+                        <li><a href=https://quinamine.github.io/totalizador-de-resumo-trimestral-de-avaliacao-de-tto-de-tb-resistente/index.html class="footer__nav__link">Totalizador de Resumo Trimestral de Avaliação de Tratamento de TB Resistente (MOD. SIS-PNCT R07)</a></li>
+                        <li><a href=https://quinamine.github.io/totalizador-de-resumo-trimestral-das-actividades-de-apoio-psicossocial-mod-sis-pnct-apss-11-a/index.html class="footer__nav__link">Totalizador de Resumo Trimestral das Actividades de Apoio Psicossocial (MOD. SIS-PNCT APSS 11A)</a></li>
+                        <li><a href=https://quinamine.github.io/totalizador-de-resumo-trimestral-de-fortalecimento-de-sistemas-para-tb/index.html class="footer__nav__link">Totalizador de Resumo Trimestral de Fortalecimento de Sistemas para TB (MOD. SIS-PNCT 14D)</a></li>
+                        <li><a href=https://quinamine.github.io/totalizador-de-resumo-trimestral-de-cuidados-de-tb-na-comunidade-e-parcerias-publico-privadas/index.html class="footer__nav__link">Totalizador de Resumo Trimestral de Cuidados de TB na Comunidade e Parcerias Público-Privadas (MOD. SIS-PNCT 12)</a></li>
+                        <li><a href=https://quinamine.github.io/ficha-de-resumo-trimestral-de-cuidados-de-tb-em-grupos-de-alto-risco/index.html class="footer__nav__link">Ficha de Resumo Trimestral de Cuidados de TB em Grupos de Alto Risco (MOD. SIS-PNCT 09)</a></li>
+                        <li><a href=https://quinamine.github.io/ficha-de-resumo-mensal-de-exames-laboratoriais-de-tb/index.html class="footer__nav__link" class="footer__nav__link">Ficha de Resumo Mensal de Exames Laboratoriais de TB (MOD. SIS-PNCT 01A)</a></li>
+                        <li><a href=https://quinamine.github.io/totalizador-de-resumo-trimestral-de-avaliacao-de-tto-de-tb-e-tb-hiv/index.html class="footer__nav__link">Totalizador de Resumo Trimestral de Avaliação de Tratamento de TB e TB/HIV (MOD. SIS-PNCT 08)</a></li>
                         <li><a href=https://quinamine.github.io/tat-pediatrico/index.html class="footer__nav__link">TAT Pediátrico - Doseador de MATs da 1ª linha, 2ª linha e Piridoxina</a></li>
                         <li><a href=https://quinamine.github.io/totalizador-de-mapa-resumo-mensal-de-caixa/index.html class="footer__nav__link">Totalizador de Mapa Resumo Mensal de Caixa</a></li>
-                        <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-notificacao-de-tb-e-tb-hiv/index.html class="footer__nav__link">Totalizador de Resumo Mensal de Notificação de TB e TB/HIV</a></li>
+                        <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-notificacao-de-tb-e-tb-hiv/index.html class="footer__nav__link">Totalizador de Resumo Mensal de Notificação de TB e TB/HIV (MOD. SIS-PNCT 07)</a></li>
                         <li><a href=https://quinamine.github.io/totalizador-de-resumo-trimestral-de-apss-e-pp/index.html class="footer__nav__link">Totalizador de Resumo Trimestral de APSS/PP</a></li>
                         <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-ats/index.html class="footer__nav__link">Totalizador de Resumo Mensal de ATS</a></li>
-                        <li><a href=https://quinamine.github.io/requisicao-balancete/index.html class="footer__nav__link">Requisição/Balancete</a></li>
+                        <li><a href=https://quinamine.github.io/requisicao-balancete/index.html class="footer__nav__link">Totalizador de Requisição/Balancete</a></li>
                         <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-prn-i/index.html class="footer__nav__link">Totalizador de Resumo Mensal de PRN I</a></li>
-                        <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-prn-ii/index.html class="footer__nav__link">Totalizador de Resumo Mensal de PRN II</a></li>
+                        <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-nutricao/index.html class="footer__nav__link">Totalizador de Resumo Mensal de Nutrição</a></li>
                         <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-malaria/index.html class="footer__nav__link">Totalizador de Resumo Mensal de Malária</a></li>
                         <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-ccd/index.html class="footer__nav__link">Totalizador de Resumo Mensal de CCD</a></li>
                         <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-saaj/index.html class="footer__nav__link">Totalizador de Resumo Mensal de SAAJ</a></li>
