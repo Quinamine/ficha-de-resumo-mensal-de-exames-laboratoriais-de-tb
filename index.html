@@ -121,7 +121,8 @@
 						</div>
 						<div class="ficha__col-de-localizacao__linha ficha__col-de-localizacao__linha--border-t --display-flex-y-center">
 							<label for="input-periodo">Mês de Reporte:</label>
-							<input type="date" id="input-periodo" class="input-nao-celular --fw-700">
+							<input type="text" id="input-periodo" list="datalist-mes-ano" class="input-nao-celular --fw-700 --border-b">
+                            <datalist id="datalist-mes-ano"></datalist>
 						</div>
 					</div>
 					<div class="ficha__header__col-de-titulo --border-t-thick --border-b-thick">
@@ -451,7 +452,7 @@
                         </datalist>
                     </div>
                     <div class="ficha__rodape__col-de-data">
-                        <label for="input-data" class="ficha__col-de-data__label">Data</label>
+                        <label for="input-data" class="ficha__col-de-data__label">Data:</label>
                         <input type="date" id="input-data" class="input-nao-celular --fw-700 --border-b">
                     </div>
                 </footer>
@@ -571,7 +572,7 @@
                 <figure>
                     <img alt="Ficha de Resumo Mensal de Exames Laboratoriais de TB" src=imagens/ficha-de-resumo-mensal-de-exames-laboratoriais-de-tb.png class="artigo__img artigo__img--center">
                 </figure>
-                <p>O serviço foi criado de acordo com o modelo da ficha de resumo mensal de exames laboratoriais de TB actualmente vigente no Serviço Nacional de Saúde em Moçambique e as células são interativas, isto é, pode inserir valores nelas. </p>
+                <p>O serviço foi criado de acordo com o modelo da <a href="fichamodelo/mod-sis-pnct-01a.pdf" download="Resumo-Mensal-de-Exames-Laboratoriais-de-TB.pdf" target="_blank">ficha de resumo mensal de exames laboratoriais de TB</a> actualmente vigente no Serviço Nacional de Saúde em Moçambique e as células são interativas, isto é, pode inserir valores nelas. </p>
                     <h3 class="artigo__titulo artigo__titulo--nivel-2">Propósito</h3>
                     <ul class="artigo__lista artigo__lista--ul">
                         <li>Expandir o acesso à ficha de resumo mensal de exames laboratoriais de TB.</li>
@@ -602,35 +603,35 @@
                     <p><b>US, Distrito, Província, Mês de Reporte:</b> Preencha respectivamente o nome da sua unidade sanitária, distrito, província e o mês de reporte do resumo mensal.</p>
                     <h3 class="artigo__titulo artigo__titulo--nivel-2">SECÇÃO 1: RASTREIO DE TB POR FAIXA ETÁRIA</h3>
                     <h4 class="artigo__titulo artigo__titulo--nivel-2 artigo__titulo--no-border-t">a) Pacientes presuntivos submetidos a exame Bacteriológico (para Diagnóstico)</h4>
-                    <p>No Livro de Registo de Pacientes com Tuberculose (Mod. SIS - PNCT 01), por cada faixa etária, somar todos pacientes com registo <b>"X"</b> na coluna 11 excluindo todos pacientes com registo "OUSP" na coluna 8.</p>
+                    <p>No Livro de Registo de Exames Laboratoriais de TB (Mod. SIS - PNCT 01), por cada faixa etária, somar todos pacientes com registo <b>"X"</b> na coluna 11 excluindo todos pacientes com registo "OUSP" na coluna 8.</p>
                     <h4 class="artigo__titulo artigo__titulo--nivel-2 artigo__titulo--no-border-t">b) Pacientes presuntivos com Bacteriologia Positiva</h4>
-                    <p>Dos pacientes da linha anterior, somar, em cada faixa etária, todos com exame bacteriológico positivo registados nas colunas 15 - 19 do Livro de Registo de Pacientes com Tuberculose (Mod. SIS - PNCT 01).</p>
+                    <p>Dos pacientes da linha anterior, somar, em cada faixa etária, todos com exame bacteriológico positivo registados nas colunas 15 - 19 do Livro de Registo de Exames Laboratoriais de TB (Mod. SIS - PNCT 01).</p>
                     <h3 class="artigo__titulo artigo__titulo--nivel-2">SECÇÃO 2: RASTREIO DE TB POR TIPO DE TESTE</h3>
                     <h4 class="artigo__titulo artigo__titulo--nivel-2 artigo__titulo--no-border-t">Pacientes presuntivos submetidos a exame Bacteriológico (para Diagnóstico)</h4>
-                    <p><b>Microscopia:</b> Dos pacientes da alinea a (primeira linha) da secção anterior, somar todos os pacientes com registo do resultado na coluna 15 do Livro de Registo de Pacientes com Tuberculose (Mod. SIS - PNCT 01).</p>
-                    <p><b>GeneXpert MTB/RIF:</b> Dos pacientes da alinea a (primeira linha) da secção anterior, somar todos com registo "XP" na coluna 16 do Livro de Registo de Pacientes com Tuberculose (Mod. SIS - PNCT 01).</p>
-                    <p><b>Truenat:</b> Dos pacientes da alinea a (primeira linha) da secção anterior, somar todos com registo "TR" na coluna 16 do Livro de Registo de Pacientes com Tuberculose (Mod. SIS - PNCT 01).</p>
-                    <p><b>LAM:</b> Dos pacientes da alinea a (primeira linha) da secção anterior somar todos com registo do resultado na coluna 18 do Livro de Registo de Pacientes com Tuberculose (Mod. SIS - PNCT 01).</p>
+                    <p><b>Microscopia:</b> Dos pacientes da alinea a (primeira linha) da secção anterior, somar todos os pacientes com registo do resultado na coluna 15 do Livro de Registo de Exames Laboratoriais de TB (Mod. SIS - PNCT 01).</p>
+                    <p><b>GeneXpert MTB/RIF:</b> Dos pacientes da alinea a (primeira linha) da secção anterior, somar todos com registo "XP" na coluna 16 do Livro de Registo de Exames Laboratoriais de TB (Mod. SIS - PNCT 01).</p>
+                    <p><b>Truenat:</b> Dos pacientes da alinea a (primeira linha) da secção anterior, somar todos com registo "TR" na coluna 16 do Livro de Registo de Exames Laboratoriais de TB (Mod. SIS - PNCT 01).</p>
+                    <p><b>LAM:</b> Dos pacientes da alinea a (primeira linha) da secção anterior somar todos com registo do resultado na coluna 18 do Livro de Registo de Exames Laboratoriais de TB (Mod. SIS - PNCT 01).</p>
                     <h4 class="artigo__titulo artigo__titulo--nivel-2 artigo__titulo--no-border-t">Pacientes presuntivos com Bacteriologia Positiva</h4>
-                    <p><b>Microscopia:</b> Dos pacientes da linha acima (da secção 2), somar todos com registo do resultado positivo na coluna 16 do Livro de Registo de Pacientes com Tuberculose (Mod. SIS - PNCT 01).</p>
-                    <p><b>GeneXpert MTB/RIF:</b> Dos pacientes da linha acima (da secção 2), somar todos com registo do resultado positivo na coluna 17 do Livro de Registo de Pacientes com Tuberculose (Mod. SIS - PNCT 01).</p>
-                    <p><b>Truenat:</b> Dos pacientes da linha acima (da secção 2), somar todos com registo do resultado positivo na coluna 18 do Livro de Registo de Pacientes com Tuberculose (Mod. SIS - PNCT 01).</p>
-                    <p><b>LAM:</b> Dos pacientes da linha acima (da secção 2), somar todos com registo do resultado positivo na coluna 19 do Livro de Registo de Pacientes com Tuberculose (Mod. SIS - PNCT 01).</p>
+                    <p><b>Microscopia:</b> Dos pacientes da linha acima (da secção 2), somar todos com registo do resultado positivo na coluna 16 do Livro de Registo de Exames Laboratoriais de TB (Mod. SIS - PNCT 01).</p>
+                    <p><b>GeneXpert MTB/RIF:</b> Dos pacientes da linha acima (da secção 2), somar todos com registo do resultado positivo na coluna 17 do Livro de Registo de Exames Laboratoriais de TB (Mod. SIS - PNCT 01).</p>
+                    <p><b>Truenat:</b> Dos pacientes da linha acima (da secção 2), somar todos com registo do resultado positivo na coluna 18 do Livro de Registo de Exames Laboratoriais de TB (Mod. SIS - PNCT 01).</p>
+                    <p><b>LAM:</b> Dos pacientes da linha acima (da secção 2), somar todos com registo do resultado positivo na coluna 19 do Livro de Registo de Exames Laboratoriais de TB (Mod. SIS - PNCT 01).</p>
                     <h3 class="artigo__titulo artigo__titulo--nivel-2">SECÇÃO 3: TESTE DE SENSIBILIDADE</h3>
                     <h3 class="artigo__titulo artigo__titulo--nivel-2">SECÇÃO 3.1: CASOS NOVOS</h3>
                     <h4 class="artigo__titulo artigo__titulo--nivel-2 artigo__titulo--no-border-t">Pacientes submetidos ao exame Xpert MTB/XDR</h4>
-                    <p><b>US com Xpert MTB/XDR:</b> Das amostras com registo <b>"X"</b> em  <b>"nunca tratado para TB"</b>  da coluna 10, somar todas as amostras com resultado registado na coluna 17 do Livro de Registo de Pacientes com Tuberculose (Mod. SIS - PNCT 01).</p>
+                    <p><b>US com Xpert MTB/XDR:</b> Das amostras com registo <b>"X"</b> em  <b>"nunca tratado para TB"</b>  da coluna 10, somar todas as amostras com resultado registado na coluna 17 do Livro de Registo de Exames Laboratoriais de TB (Mod. SIS - PNCT 01).</p>
                     <p><b>US sem Xpert MTB/XDR:</b> Das amostras com registo <b>"X"</b> em  <b>"nunca tratado para TB"</b>  da coluna 10, somar todas as amostras com resultado registado na coluna 19 do Livro de Referenciamento de Amostras para Exames Laboratoriais da TB (Mod. SIS - PNCT 13).</p>
                     <h4 class="artigo__titulo artigo__titulo--nivel-2 artigo__titulo--no-border-t">Pacientes submetidos ao exame de Xpert MTB/XDR com resistência a Isoniazida apenas</h4>
-                    <p><b>US com Xpert MTB/XDR:</b> Das amostras com registo <b>"X"</b> em  <b>"nunca tratado para TB"</b>  da coluna 10, somar apenas as amostras com registo <b>"R"</b> em <b>"H"</b> na coluna 17 do Livro de Registo de Pacientes com Tuberculose (Mod. SIS - PNCT 01).</p>
+                    <p><b>US com Xpert MTB/XDR:</b> Das amostras com registo <b>"X"</b> em  <b>"nunca tratado para TB"</b>  da coluna 10, somar apenas as amostras com registo <b>"R"</b> em <b>"H"</b> na coluna 17 do Livro de Registo de Exames Laboratoriais de TB (Mod. SIS - PNCT 01).</p>
                     <p><b>US sem Xpert MTB/XDR:</b> Das amostras com registo <b>"X"</b> em  <b>"nunca tratado para TB"</b>  da coluna 10 somar apenas as amostras com registo <b>"R"</b> em <b>"H"</b> na coluna 19 do Livro de Referenciamento de Amostras para Exames Laboratoriais da TB (Mod. SIS - PNCT 13).</p>
                     <h4 class="artigo__titulo artigo__titulo--nivel-2 artigo__titulo--no-border-t">Pacientes submetidos ao exame de Xpert MTB/XDR com resistência a Isoniazida e Fluoroquinilonas</h4>
-                    <p><b>US com Xpert MTB/XDR:</b> Das amostras com registo <b>"X"</b> em  <b>"nunca tratado para TB"</b>  da coluna 10, somar apenas as amostras registo <b>"R"</b> em <b>"H"</b> e <b>"Flq"</b> na coluna 17 do Livro de Registo de Pacientes com Tuberculose (Mod. SIS - PNCT 01).</p>
+                    <p><b>US com Xpert MTB/XDR:</b> Das amostras com registo <b>"X"</b> em  <b>"nunca tratado para TB"</b>  da coluna 10, somar apenas as amostras registo <b>"R"</b> em <b>"H"</b> e <b>"Flq"</b> na coluna 17 do Livro de Registo de Exames Laboratoriais de TB (Mod. SIS - PNCT 01).</p>
                     <p><b>US sem Xpert MTB/XDR:</b> Das amostras com registo <b>"X"</b> em  <b>"nunca tratado para TB"</b>  da coluna 10 somar apenas as amostras com registo <b>"R"</b> em <b>"H"</b> e <b>"Flq"</b> na coluna 19 do Livro de Referenciamento de Amostras para Exames Laboratoriais da TB (Mod. SIS - PNCT 13).</p>
                     <h4 class="artigo__titulo artigo__titulo--nivel-2 artigo__titulo--no-border-t">Pacientes submetidos ao exame de Xpert MTB/XDR com resistência a fluoroquinolonas apenas</h4>
                     <p><b>US com Xpert MTB/XDR:</b> Das amostras com registo <b>"X"</b> em  <b>"nunca tratado para TB"</b>  da coluna 10 somar apenas as amostras com registo <b>"R"</b> em <b>"Flq"</b> na coluna 17 do livro de registo de exames laboratoriais (Mod. SIS - PNCT 01).</p>
                     <p><b>US sem Xpert MTB/XDR:</b> Das amostras com registo <b>"X"</b> em  <b>"nunca tratado para TB"</b>  da coluna 10 somar apenas as amostras com registo <b>"R"</b> em <b>"Flq"</b> na coluna 19 do Livro de Referenciamento de Amostras para Exames Laboratoriais da TB (Mod. SIS - PNCT 13).</p>
-                    <h3 class="artigo__titulo artigo__titulo--nivel-2">SECÇÃO 3.2: PREVIMENTE TRATADOS</h3>
+                    <h3 class="artigo__titulo artigo__titulo--nivel-2">SECÇÃO 3.2: PREVIAMENTE TRATADOS</h3>
                     <h4 class="artigo__titulo artigo__titulo--nivel-2 artigo__titulo--no-border-t">Pacientes submetidos a exame Xpert MTB/XDR</h4>
                     <p><b>US com Xpert MTB/XDR:</b> Das amostras com registo <b>"X"</b> na segunda e terceira coluna da coluna 10, Somar todos as amostras com resultado registado na coluna 17 do livro de registo de exames laboratoriais (Mod. SIS - PNCT 01).</p>
                     <p><b>US sem Xpert MTB/XDR:</b> Das amostras com registo <b>"X"</b> na segunda e terceira coluna da coluna 10, somar todos as amostras com resultado registado na coluna 19 do Livro de Referenciamento de Amostras para Exames Laboratoriais da TB (Mod. SIS - PNCT 13).</p>
@@ -725,6 +726,7 @@
                 <nav class=footer__nav>
                     <h4 class="footer__nav__title">Hiperligações para outros serviços afins</h4>
                     <ul>
+                        <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-rastreio-de-tb-usando-rx/index.html class="footer__nav__link">Totalizador de Resumo Mensal de Rastreio de TB usando RX</a></li>
                         <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-tdi/index.html class="footer__nav__link">Totalizador de Resumo Mensal de TDI</a></li>
                         <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-nutricao/index.html class="footer__nav__link">Totalizador de Resumo Mensal de Nutrição</a></li>
                         <li><a href=https://quinamine.github.io/totalizador-de-resumo-mensal-de-its/index.html class="footer__nav__link">Totalizador de Resumo Mensal de ITS</a></li>
