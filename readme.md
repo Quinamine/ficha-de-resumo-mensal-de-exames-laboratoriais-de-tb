@@ -2,7 +2,7 @@
 
 ![Trecho do serviço Ficha de Resumo Mensal de Exames Laboratoriais de TB](imagens/ficha-de-resumo-mensal-de-exames-laboratoriais-de-tb.png)
 
-O serviço foi criado de acordo com o modelo da ficha de resumo mensal de exames laboratoriais de TB actualmente vigente no Serviço Nacional de Saúde em Moçambique e as células são interativas, isto é, pode inserir valores nelas.
+O serviço foi desenvolvido de acordo com o modelo da ficha de resumo mensal de exames laboratoriais de TB actualmente vigente no Serviço Nacional de Saúde em Moçambique e as células são interativas, isto é, pode inserir valores nelas.
 
 
 ## Propósito
