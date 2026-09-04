@@ -35,18 +35,20 @@
     </head>
      <body id="body" class="body-com-topo-info" ontouchstart="">
         <div class="topo-info topo-info--off topo-info--festas-felizes --no-print">
-            <div class="topo-info__row">
-                <img src="imagens/arvore-de-natal.png" alt="Árvore de Natal" class="topo-info__img">
-                <p class="topo-info__paragrafo"></p>
-                <button class="topo-info__btn topo-info__btn--background-tom-de-red" title="Fechar">&times;</button>
-            </div>
+        <div class="topo-info__row">
+            <img src="imagens/arvore-de-natal.png" alt="Árvore de Natal" class="topo-info__img">
+            <p class="topo-info__paragrafo"></p>
+            <button class="topo-info__btn topo-info__btn--background-tom-de-red" title="Fechar">&times;</button>
         </div>
-        <div class="topo-info --no-print">
-            <div class="topo-info__row">
-                <a href=https://quinamine.github.io/aderito-felix-quinamine/paginas/portfolio.html class="topo-info__link info-content info-content--no-shadow"><span class="--hide-on-mobile">Clique</span><span class="--hide-on-desktop">Toque</span> aqui para <span class="topo-info__link__trecho-acessar --cursor-pointer">acessar</span> mais totalizadores de resumos mensais e/ou trimestrais.</a>
-                <button class="topo-info__btn" title="Fechar">&times;</button>
-            </div>
+    </div>
+    <div class="banner-redirecionamento">
+        <p class="banner-redirecionamento__content">Esta ficha foi movida para o Portal Unificado. Será
+            redirecionado para a nova página em <span class="tempo-de-redirecionamento">10</span> segundos.</p>
+        <div class="banner-redirecionamento__action-container">
+            <a href="https://quinamine.github.io/totalizador-estatistica-saude/?page=pnct-01a"
+                class="banner-redirecionamento__action">Aceder agora</a>
         </div>
+    </div>
         <header id="header" class="--no-print">
             <div class="layout-row layout-row--of-header layout-row--no-padding">
                 <a href=index.html id="logo">Ficha de Resumo Mensal de Exames Laboratoriais de TB</a>
@@ -492,7 +494,7 @@
                 </div>
             </div>
         </main>
-        <section class="dialog-boxes --no-print">
+        <section class="dialog-boxes --no-print  --display-none">
             <div class="dialog-box-default dialog-box-default--sobre-aqd">
                 <h3 class="dialog-box-default__title">Ficha de Resumo Mensal de Exames Laboratoriais de TB</h3>
                 <p class="dialog-box-default__p">As células da ficha são interativas, isto é, pode inserir valores nelas.</p>
@@ -765,7 +767,7 @@
             </div>
             <p class="footer__p footer__p--available-since">Disponível desde <time datetime="2024-10-19">20/10/2024</time>. Última actualização: Junho/2025.</p>
         </footer>
-        <div class="desfoque"></div>
+        <div class="desfoque --on"></div>
         <script src="fisiologia/festasfelizes.js"></script>
     </body>
 </html>

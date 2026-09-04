@@ -139,7 +139,23 @@ function preencherCelulasVaziasComZero(){
         }
     }
 }
-let btnAutoCloseLoop;
+function redirecionarParaTES() {
+    let tempoRedirecionamento = 10000;
+    let segundos = tempoRedirecionamento / 1000;
+
+    const timer = setInterval(() => {
+        redirectionTime.innerText = `${segundos--}`;
+        if(segundos < 1) {
+            clearInterval(timer);
+        }
+
+    }, 1000);
+
+    setTimeout(() => {
+        window.location.href = 'https://quinamine.github.io/totalizador-estatistica-saude/?page=pnct-01a';
+    }, tempoRedirecionamento)
+}
+let btnAutoCloseLoop, redirectionTime;
 window.addEventListener("load", () => {
     const readonlyInputs = document.querySelectorAll("[readonly]");
     readonlyInputs.forEach ( inputTarget => inputTarget.addEventListener("click", () => {
@@ -203,4 +219,9 @@ window.addEventListener("load", () => {
     preencherCelulasVaziasComZero();
     const btnConfirmarEsvaziarFicha = document.querySelector(".dialog-box-esvaziar-ficha__btn--confirmar");
     btnConfirmarEsvaziarFicha.addEventListener("click", () => localStorage.removeItem(`${keyPrefix}-vazio=zero`));
+
+    
+    // Redirecionar
+    redirectionTime = document.querySelector('.tempo-de-redirecionamento');
+    redirecionarParaTES();
 });
